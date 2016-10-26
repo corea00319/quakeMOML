@@ -33,7 +33,7 @@
 			<LABEL id="address" layout="300,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 
 			<WEBVIEW id="mapWebView" layout="300,300" controls="none"/>
-			<LABEL text="자료제공 : 국립중앙의료원" />
+			<LABEL text="자료제공 : 국토교통" />
 		</WINDOW>
 		
 		<WINDOW id="loading" layout="0,0,320,480" img="#c0ffffff" visible="invisible" align="linear:center" onClick="'ignore'">
@@ -45,10 +45,10 @@
 
 	<!-- https://www.data.go.kr 에서 오픈API - 전국 병‧의원 찾기 서비스의 [SERVICE KEY]를 발급 받아야 합니다. -->
 	<!-- 다른 사람의 키를 사용할 경우 트래픽을 초과하거나 변경되면 동작하지 않게됩니다.-->
-	<CMD cmd="userVariable.serviceKey = 'XAQRkAc4BBj5RWTWfdEX5Oc5ry0o4j74tmxD5R4HhJoegNLrNTlRZl6%2BCW%2BX%2BC28DAwBYq73UvcNcdB6n591bg%3D%3D'" />
+	<CMD cmd="userVariable.serviceKey = 'F65D75B8-3F32-39A7-B755-5DFBA5B87112'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
-		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlMdcncLcinfoInqire?ServiceKey=' + userVariable.serviceKey"/>
+		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/info?apiKey=F65D75B8-3F32-39A7-B755-5DFBA5B87112&domain=https://github.com/corea00319/quakeMOML/start.xml"/>
 		<CMD cmd="url = url + '&amp;WGS84_LAT=' + latitude.text"/>
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=50'"/>
