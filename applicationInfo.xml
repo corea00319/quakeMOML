@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MOML>
- <APPLICATIONINFO>
-  <START url="start.xml" /> 
-  <ORIENTATION type="defaultPortrait" />
- </APPLICATIONINFO>
+<!--
+	Created by ApplusForm.com on 2015.03.18
+	Permission is granted to copy, distribute, modify under the terms of ApplusForm License.
+	Copyright (C) 2013 ApplusForm.com All rights reserved.
+-->
+<MOML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd http://www.opengis.net/gml http://schemas.opengis.net/gml/3.1.1/base/feature.xsd">
+	<APPLICATIONINFO>
+		<START url="ui/start.xml" /> 
+		<ORIENTATION type="defaultPortrait" />
+	</APPLICATIONINFO>
 </MOML>
