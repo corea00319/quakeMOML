@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<MOML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.applusform.com/xsd/moml_appInfo.xsd">
-	<APPLICATIONINFO>
-		<START url="start.xml" /> 
-		<ORIENTATION type="defaultPortrait" />
-	</APPLICATIONINFO>
+<MOML>
+ <APPLICATIONINFO>
+  <START url="start.xml" /> 
+  <ORIENTATION type="defaultPortrait" />
+ </APPLICATIONINFO>
 </MOML>
