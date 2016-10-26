@@ -4,47 +4,47 @@
 		<THEME element="BUTTON" textColor="#ffffff" defaultImg="#0080ff" pressedImg="#008000" margin="1"/>
 	</THEMES>
 	
-	<UILAYOUT portrait="320,480" landscape="320,480">
-		<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
-			<LABEL text="가까운 대피소 검색 : "/>
+<UILAYOUT portrait="320,480" landscape="320,480">
+	<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
+		<LABEL text="가까운 대피소 검색 : "/>
 
-			<WINDOW align="linear:subCenter">
-				<BUTTON layout="160,30" text="현위치 확인" onClick="function.findLocation" />
-				<BUTTON layout="60,30" text="검색" onClick="function.search" />
-			</WINDOW>
+	<WINDOW align="linear:subCenter">
+		<BUTTON layout="160,30" text="현위치 확인" onClick="function.findLocation" />
+		<BUTTON layout="60,30" text="검색" onClick="function.search" />
+	</WINDOW>
 
-			<WINDOW align="linear:subCenter">
-				<LABEL layout="40,30" text="위도 : " textAlign="right|vCenter"/>
-				<EDIT id="latitude" layout="110,30" textAlign="vCenter" text="37.5467649"/>
-				<LABEL layout="40,30" text="경도 : " textAlign="right|vCenter"/>
-				<EDIT id="longitude" layout="110,30" textAlign="vCenter" text="127.0638224"/>
-			</WINDOW>
-			<LABEL id="address" layout="300,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
+	<WINDOW align="linear:subCenter">
+		<LABEL layout="40,30" text="위도 : " textAlign="right|vCenter"/>
+		<EDIT id="latitude" layout="110,30" textAlign="vCenter" text="37.5467649"/>
+		<LABEL layout="40,30" text="경도 : " textAlign="right|vCenter"/>
+		<EDIT id="longitude" layout="110,30" textAlign="vCenter" text="127.0638224"/>
+	</WINDOW>
+	<LABEL id="address" layout="300,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 
-			<WINDOW layout="300,300" align="relative">
-				<LIST2 id="hospitalList" layout="0,0,300,300" dataList="//item" img="lightsteelblue" divider="#808080">
-					<LISTLAYOUT>
-						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
-							<LABEL id="divName" layout="5,3,50,10" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
-							<LABEL id="name" layout="55,3,200,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
-							<LABEL id="distance" layout="260,3,30,15" text="{xpath.evaluate('distance/text()') * 1000} m" textAlign="vCenter" fontSize="10" />
-							<LABEL id="address" layout="55,20,240,15" text="{xpath.evaluate('dutyAddr/text()')}" textAlign="vCenter" fontSize="10" />
-							<LABEL id="time" layout="55,38,50,20" text="{function.toTime(xpath.evaluate('startTime/text()'))} ~ {function.toTime(xpath.evaluate('endTime/text()'))}" textAlign="vCenter" fontSize="10" />
-							<BUTTON id="map" layout="150,38,50,20" text="지도" onClick="function.showMap"/>
-							<BUTTON id="tel" layout="205,38,90,20" text="{xpath.evaluate('dutyTel1/text()')}" fontSize="8" onClick="appLauncher.openUri('tel:' + caller.text, '')"/>
-						</BUTTON>
-					</LISTLAYOUT>
-				</LIST2>
-				
-				<WINDOW id="detailMap" layout="0,0,300,300" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
-					<LABEL id="mapTitle" layout="0,0,300,30" textAlign="center" fontSize="15" defaultImg="#e0e0ff"/>
-					<WEBVIEW id="mapWebView" layout="10,30,280,230" controls="none"/>
-					<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
-				</WINDOW>
-			</WINDOW>
+		<WINDOW layout="300,300" align="relative">
+		<LIST2 id="shel_id" layout="0,0,300,300" dataList="//item" img="lightsteelblue" divider="#808080">
+			<LISTLAYOUT>
+				<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
+					<LABEL id="divName" layout="5,3,50,10" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
+					<LABEL id="name" layout="55,3,200,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
+					<LABEL id="distance" layout="260,3,30,15" text="{xpath.evaluate('distance/text()') * 1000} m" textAlign="vCenter" fontSize="10" />
+					<LABEL id="address" layout="55,20,240,15" text="{xpath.evaluate('dutyAddr/text()')}" textAlign="vCenter" fontSize="10" />
+					<LABEL id="time" layout="55,38,50,20" text="{function.toTime(xpath.evaluate('startTime/text()'))} ~ {function.toTime(xpath.evaluate('endTime/text()'))}" textAlign="vCenter" fontSize="10" />
+					<BUTTON id="map" layout="150,38,50,20" text="지도" onClick="function.showMap"/>
+					<BUTTON id="tel" layout="205,38,90,20" text="{xpath.evaluate('dutyTel1/text()')}" fontSize="8" onClick="appLauncher.openUri('tel:' + caller.text, '')"/>
+				</BUTTON>
+			</LISTLAYOUT>
+		</LIST2>
+		</WINDOW>		
+		<WINDOW id="detailMap" layout="0,0,300,300" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
+			<LABEL id="mapTitle" layout="0,0,300,30" textAlign="center" fontSize="15" defaultImg="#e0e0ff"/>
+			<WEBVIEW id="mapWebView" layout="10,30,280,230" controls="none"/>
+			<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
+		</WINDOW>
 			
 			<LABEL text="자료제공 : 소방방재청" />
 		</WINDOW>
+	
 	</UILAYOUT>
 
 	<CMD cmd="userVariable.serviceKey = 'F65D75B8-3F32-39A7-B755-5DFBA5B87112'" />
@@ -57,7 +57,7 @@
 		<CMD cmd="xml = file.read(url)" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
-		<CMD cmd="hospitalList.dataSource = xml" />
+		<CMD cmd="shel_id.dataSource = xml" />
 	</FUNCTION>
 	
 	<FUNCTION id="findLocation">
