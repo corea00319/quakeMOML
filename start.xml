@@ -6,7 +6,7 @@
 	
 	<UILAYOUT portrait="320,480" landscape="320,480">
 		<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
-			<LABEL text="가까운 대피 검색 : "/>
+			<LABEL text="가까운 대피소 검색 : "/>
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="160,30" text="현위치 확인" onClick="function.findLocation" />
@@ -43,7 +43,7 @@
 				</WINDOW>
 			</WINDOW>
 			
-			<LABEL text="자료제공 : 국토교통" />
+			<LABEL text="자료제공 : 국토교통부" />
 		</WINDOW>
 	</UILAYOUT>
 
@@ -52,7 +52,7 @@
 	<CMD cmd="userVariable.serviceKey = 'F65D75B8-3F32-39A7-B755-5DFBA5B87112'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
-		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/info?apiKey=F65D75B8-3F32-39A7-B755-5DFBA5B87112"/>
+		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/info?apiKey=F65D75B8-3F32-39A7-B755-5DFBA5B87112&domain=https://github.com/corea00319/quakeMOML/start.xml"/>
 		<CMD cmd="url = url + '&amp;WGS84_LAT=' + latitude.text"/>
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
