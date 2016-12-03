@@ -68,8 +68,8 @@
 
 	<FUNCTION id="onGpsChange(latitude, longitude, address)">
   		<CMD cmd="device.gps.removeEventListener('onChange', 'function.onGpsChange')"/>
-  		<CMD cmd="lat.text = latitude"/>
- 		<CMD cmd="lon.text = longitude"/>
+  		<CMD cmd="latitude.text = latitude"/>
+ 		<CMD cmd="longitude.text = longitude"/>
  		<CMD cmd="shel_ad.text=address"/>
  </FUNCTION>
 
