@@ -47,7 +47,7 @@
 	<CMD cmd="userVariable.serviceKey = 'FFE6BAFB-E40D-322C-9089-B7CC44ED83C0'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
-		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=202CCA3C-008D-39BC-9DA8-96E94C187A55&domain=https://github.com/corea00319/quakeMOML' "/>
+		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=202CCA3C-008D-39BC-9DA8-96E94C187A55' "/>
 		<CMD cmd="url = url + '&amp;WGS84_LAT=' + latitude.text"/>
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
@@ -66,20 +66,20 @@
 		<RETURN cmd="string.sub(str, 0, 2) + ':' + string.sub(str, 2, 2) " />
 	</FUNCTION >
 
-	<FUNCTION id="onGpsChange(lat, lon, address)">
+	<FUNCTION id="onGpsChange(latitude, longitude, address)">
   		<CMD cmd="device.gps.removeEventListener('onChange', 'function.onGpsChange')"/>
   		<CMD cmd="lat.text = latitude"/>
  		<CMD cmd="lon.text = longitude"/>
- 		<CMD cmd="address.text=address"/>
+ 		<CMD cmd="shel_ad.text=address"/>
  </FUNCTION>
 
 	<FUNCTION id="showMap">
 		<CMD cmd="html = file.read('map.htm')" />
-		<CMD cmd="html = string.replace(html, '$shel_ad$', xpath.evaluate('shel_ad/text()'))"/>
-		<CMD cmd="html = string.replace(html, '$lat$', xpath.evaluate('lat/text()'))"/>
-		<CMD cmd="html = string.replace(html, '$lon$', xpath.evaluate('lon/text()'))"/>
-		<CMD cmd="html = string.replace(html, '$MYLAT$', lat.text)"/>
-		<CMD cmd="html = string.replace(html, '$MYLON$', lon.text)"/>
+		<CMD cmd="html = string.replace(html, '$ADDRESS$', xpath.evaluate('shel_ad/text()'))"/>
+		<CMD cmd="html = string.replace(html, '$LATITUDE$', xpath.evaluate('latitude/text()'))"/>
+		<CMD cmd="html = string.replace(html, '$LONGITUDE$', xpath.evaluate('longitude/text()'))"/>
+		<CMD cmd="html = string.replace(html, '$MYLATITUDE$', latitude.text)"/>
+		<CMD cmd="html = string.replace(html, '$MYLONGITUDE$', longitude.text)"/>
 		<CMD cmd="mapTitle.text = xpath.evaluate('shel_nm/text()')" />
 		<CMD cmd="mapWebView.src = html" />
 		<CMD cmd="detailMap.visible = true" />
