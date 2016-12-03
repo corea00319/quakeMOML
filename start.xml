@@ -44,7 +44,7 @@
 	
 	</UILAYOUT>
 
-	<CMD cmd="userVariable.serviceKey = 'FFE6BAFB-E40D-322C-9089-B7CC44ED83C0'" />
+	<CMD cmd="userVariable.serviceKey = '202CCA3C-008D-39BC-9DA8-96E94C187A55'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
 		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=202CCA3C-008D-39BC-9DA8-96E94C187A55' "/>
