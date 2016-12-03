@@ -70,7 +70,7 @@
   		<CMD cmd="device.gps.removeEventListener('onChange', 'function.onGpsChange')"/>
   		<CMD cmd="latitude.text = latitude"/>
  		<CMD cmd="longitude.text = longitude"/>
- 		<CMD cmd="shel_ad.text=address"/>
+ 		<CMD cmd="address.text=address"/>
  </FUNCTION>
 
 	<FUNCTION id="showMap">
