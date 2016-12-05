@@ -47,7 +47,7 @@
 	<CMD cmd="userVariable.serviceKey = 'FFE6BAFB-E40D-322C-9089-B7CC44ED83C0'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
-		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=FFE6BAFB-E40D-322C-9089-B7CC44ED83C0&amp;domain=https://github.com/corea00319/quakeMOML/blob/gh-pages/start.xml' "/>
+		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=FFE6BAFB-E40D-322C-9089-B7CC44ED83C0&domain=https://github.com/corea00319/quakeMOML/blob/gh-pages/start.xml' "/>
 		<CMD cmd="url = url + '&amp;WGS84_LAT=' + latitude.text"/>
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
