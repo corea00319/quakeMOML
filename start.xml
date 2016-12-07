@@ -52,10 +52,10 @@
 	<CMD cmd="userVariable.serviceKey = '92A8287C-6293-3EBF-847F-51954FB7141C'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
-		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=92A8287C-6293-3EBF-847F-51954FB7141C&domain=https://github.com/corea00319' "/>
-		<CMD cmd="url = url + '&geometry=' + POINT"/>
-		<CMD cmd="url = url + '&emdCd='"/>
-		<CMD cmd="url = url + '&pageIndex=1&amp;pageUnit=100'"/>
+		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=92A8287C-6293-3EBF-847F-51954FB7141C&amp;domain=https://github.com/corea00319' "/>
+		<CMD cmd="url = url + '&amp;geometry='"/>
+		<CMD cmd="url = url + '&amp;emdCd='"/>
+		<CMD cmd="url = url + '&amp;pageIndex=1&amp;pageUnit=100'"/>
 		<CMD cmd="xml = file.read(url)" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
