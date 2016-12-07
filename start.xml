@@ -54,7 +54,7 @@
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
 		<CMD cmd="url = 'http://apis.vworld.kr/2ddata/edrse002/data?apiKey=92A8287C-6293-3EBF-847F-51954FB7141C&amp;https://github.com/corea00319' "/>
 		<CMD cmd="url = url + '&amp;POLYGON((127.697 36.0956999991003,127.797 36.0956999991003,127.797 36.1956999991003,127.697 36.1956999991003,127.697 36.0956999991003))'"/>
-		<CMD cmd="url = url + '&amp;emdCd='"/>
+		
 		<CMD cmd="url = url + '&amp;pageIndex=1&amp;pageUnit=10'"/>
 		<CMD cmd="xml = file.read(url)" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
