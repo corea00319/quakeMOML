@@ -70,7 +70,7 @@
 		<RETURN cmd="string.sub(str, 0, 2) + ':' + string.sub(str, 2, 2) " />
 	</FUNCTION >
 
-	<FUNCTION id="onGpsChange(latitude, longitude, adress)">
+	<FUNCTION id="onGpsChange(latitude, longitude, address)">
   		<CMD cmd="device.gps.removeEventListener('onChange', 'function.onGpsChange')"/>
   		<CMD cmd="latitude.text = latitude"/>
  		<CMD cmd="longitude.text = longitude"/>
