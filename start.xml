@@ -70,16 +70,14 @@
 		<RETURN cmd="string.sub(str, 0, 2) + ':' + string.sub(str, 2, 2) " />
 	</FUNCTION >
 
-	<FUNCTION id="onGpsChange(latitude, longitude, address)">
+	<FUNCTION id="onGpsChange(latitude, longitude)">
   		<CMD cmd="device.gps.removeEventListener('onChange', 'function.onGpsChange')"/>
   		<CMD cmd="latitude.text = latitude"/>
  		<CMD cmd="longitude.text = longitude"/>
- 		<CMD cmd="address.text=address"/>
  </FUNCTION>
 
 	<FUNCTION id="showMap">
 		<CMD cmd="html = file.read('map.htm')" />
-		<CMD cmd="html = string.replace(html, '$ADDRESS$', xpath.evaluate('shel_ad/text()'))"/>
 		<CMD cmd="html = string.replace(html, '$LATITUDE$', xpath.evaluate('latitude/text()'))"/>
 		<CMD cmd="html = string.replace(html, '$LONGITUDE$', xpath.evaluate('longitude/text()'))"/>
 		<CMD cmd="html = string.replace(html, '$MYLATITUDE$', latitude.text)"/>
