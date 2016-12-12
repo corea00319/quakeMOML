@@ -53,7 +53,7 @@
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
 		<CMD cmd="url='http://apis.vworld.kr/2ddata/edrse002/data?apiKey=202CCA3C-008D-39BC-9DA8-96E94C187A55&amp;domain=https://github.com/corea00319/quakeMOML' "/>
-		<CMD cmd="param='POINT('+x.text+','+y.text+')'"/>
+		<CMD cmd="param='POINT('+longitude.text+''+latitude.text+')'"/>
 		<CMD cmd="url = url + '&amp;geometry='+param"/>
 		<CMD cmd="xml = file.read(url)" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
